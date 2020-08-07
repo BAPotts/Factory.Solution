@@ -22,7 +22,7 @@ namespace Factory
     {
       services.AddMvc();
       services.AddEntityFrameworkMySql()
-        .AddDbContext<NonProfitContext>(options => options
+        .AddDbContext<FactoryContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
     }
     public void Configure(IApplicationBuilder app)
