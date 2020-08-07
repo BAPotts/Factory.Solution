@@ -1,0 +1,25 @@
+@using Factory.Models
+@model Factory.Models.Engineer
+
+<h2>Engineer Details</h2>
+<hr/>
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+<h3>Machines:</h3>
+<ul>
+  @if (@Model.Machines.Count == 0)
+  {
+    <p>This engineer is not assigned to any machines.</p>
+  }
+
+  @foreach(Machine machine in @Model.Machines)
+  {
+    <li>@machine.Name</li>
+  }
+</ul>
+
+
+<p>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Delete Engineer","Delete", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Back to Engineer List", "Index")</p>
+<p>@Html.ActionLink("Back Home", "Index", "Home")</p>
