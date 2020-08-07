@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Factory.Models{
+namespace Factory.Models
+{
   public class FactoryContext : DbContext
   {
     public virtual DbSet<Engineer> Engineers { get; set; }
