@@ -17,8 +17,15 @@ namespace Factory.Controllers
 
     public ActionResult Index()
     {
-      List<Machine> model = _db.Machines.ToList();
-      return View(model);
+      return View(_db.Machines.ToList());
+    }
+    public ActionResult Details(int id)
+    {
+      var thisMachine = _db.Machines
+        .Include(machine =>machine.Engineers)
+        .ThenInclude(join => join.Machine)
+        .FirstOrDefault(machine => machine.MachineId ==id);
+      return View(thisMachine);
     }
   }
 }

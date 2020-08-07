@@ -38,8 +38,9 @@ namespace Factory.Controllers
     {
       Engineer thisEngineer = _db.Engineers
         .Include(engineer => engineer.Machines)
+        .ThenInclude(join => join.Machine)
         .FirstOrDefault(engineer => engineer.EngineerId == id);
-        return view (thisEngineer);
+        return View (thisEngineer);
     }
   }
 }

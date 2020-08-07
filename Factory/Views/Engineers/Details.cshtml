@@ -6,17 +6,21 @@
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 
 <h3>Machines:</h3>
-<ul>
+
   @if (@Model.Machines.Count == 0)
   {
     <p>This engineer is not assigned to any machines.</p>
   }
 
-  @foreach(Machine machine in @Model.Machines)
+ else
+{
+  <ul>
+  @foreach(var join in Model.Machines)
   {
-    <li>@machine.Name</li>
+    <li>@join.Machine.Name</li>
   }
-</ul>
+  </ul>
+}
 
 
 <p>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</p>
